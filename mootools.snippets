@@ -29,6 +29,19 @@ snippet class Extends
 		} 
 	});
 	
+snippet class Occlude
+	var ${1:class_name} = new Class({
+		Implements: [Class.Occlude],
+		property: "${2:storage_key}",
+		initialize: function(el) {
+			this.element = $(el);
+			if (this.occlude()) return this.occluded;
+		},
+		toElement: function() {
+			return this.element;
+		}
+	});
+
 snippet class Options Implements
 	var ${1:class_name} = new Class({
 		Implements: [Options, ${2:implemented_classes}],
