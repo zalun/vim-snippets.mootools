@@ -3,6 +3,20 @@ snippet request Clean
 		url: '${1:url}'
 	})${2};
 
+snippet request HTML
+	new Request.HTML({
+		url: '${1:url}',
+		update: '${2:element_id}'
+	})${3};
+
+snippet request JSON
+	new Request.JSON({
+		url: '${1:url}',
+		onSuccess: function(response) {
+			${2}
+		}
+	})${3};
+
 snippet class Clean
 	new Class({
 		initialize: function(${1:arguments}) {
