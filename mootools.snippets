@@ -1,41 +1,50 @@
+snippet request Clean
+	new Request({
+		url: '${1:url}'
+	})${2};
+
 snippet class Clean
-	var ${1:class_name} = new Class({
+	new Class({
+		initialize: function(${1:arguments}) {
+			${2}
+		} 
+	});
+
+snippet class Options
+	new Class({
+		Implements: [Options],
+		options: {
+			${1:option_key}: ${2:option_value}
+		},
+		initialize: function(options) {
+			${3}
+		} 
+	});
+
+snippet class Implements
+	new Class({
+		Implements: [${1:implemented_classes}],
 		initialize: function(${2:arguments}) {
 			${3}
 		} 
 	});
 
-snippet class Options
-	var ${1:class_name} = new Class({
-		Implements: [Options],
-		initialize: function(options) {
-			${2}
-		} 
-	});
-
-snippet class Implements
-	var ${1:class_name} = new Class({
-		Implements: [${2:implemented_classes}],
-		initialize: function(${3:arguments}) {
-			${4}
-		} 
-	});
-
 snippet class Extends
-	var ${1:class_name} = new Class({
-		Extends: ${2:extended_class},
-		initialize: function(${3:arguments}) {
-			${4}
+	new Class({
+		Extends: ${1:extended_class},
+		initialize: function(${2:arguments}) {
+			${3}
 		} 
 	});
 	
 snippet class Occlude
-	var ${1:class_name} = new Class({
+	new Class({
 		Implements: [Class.Occlude],
-		property: "${2:storage_key}",
+		property: '${1:storage_key}',
 		initialize: function(el) {
 			this.element = $(el);
 			if (this.occlude()) return this.occluded;
+			${2}
 		},
 		toElement: function() {
 			return this.element;
@@ -43,21 +52,27 @@ snippet class Occlude
 	});
 
 snippet class Options Implements
-	var ${1:class_name} = new Class({
-		Implements: [Options, ${2:implemented_classes}],
+	new Class({
+		Implements: [Options, ${1:implemented_classes}],
+		options: {
+			${2:option_key}: ${3:option_value}
+		},
 		initialize: function(options) {
 			this.setOptions(options);
-			${3}
+			${4}
 		} 
 	});
 
 snippet class Options Implements Extends
-	var ${1:class_name} = new Class({
-		Extends: ${2:extended_class},
-		Implements: [Options, ${3:implemented_classes}],
+	new Class({
+		Extends: ${1:extended_class},
+		Implements: [Options, ${2:implemented_classes}],
+		options: {
+			${3:option_key}: ${4:option_value}
+		},
 		initialize: function(options) {
 			this.setOptions(options);
-			${4}
+			${5}
 		} 
 	});
 
