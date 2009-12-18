@@ -1,0 +1,10 @@
+Snippets for ViM SnipMate plugin
+http://www.vim.org/scripts/script.php?script_id=2540
+
+To install copy into your vim snippets directory (~/.vim/snippets/ on Linux)
+:set ft=javascript.mootools
+
+To set these automatically each time you run vim, add the following lines to
+your .vimrc:
+
+autocmd FileType javascript set ft=javascript.mootools
