@@ -1,0 +1,50 @@
+snippet class Clean
+	var ${1:class_name} = new Class({
+		initialize: function(${2:arguments}) {
+			${3}
+		} 
+	});
+
+snippet class Options
+	var ${1:class_name} = new Class({
+		Implements: [Options],
+		initialize: function(options) {
+			${2}
+		} 
+	});
+
+snippet class Implements
+	var ${1:class_name} = new Class({
+		Implements: [${2:implemented_classes}],
+		initialize: function(${3:arguments}) {
+			${4}
+		} 
+	});
+
+snippet class Extends
+	var ${1:class_name} = new Class({
+		Extends: ${2:extended_class},
+		initialize: function(${3:arguments}) {
+			${4}
+		} 
+	});
+	
+snippet class Options Implements
+	var ${1:class_name} = new Class({
+		Implements: [Options, ${2:implemented_classes}],
+		initialize: function(options) {
+			this.setOptions(options);
+			${3}
+		} 
+	});
+
+snippet class Options Implements Extends
+	var ${1:class_name} = new Class({
+		Extends: ${2:extended_class},
+		Implements: [Options, ${3:implemented_classes}],
+		initialize: function(options) {
+			this.setOptions(options);
+			${4}
+		} 
+	});
+
