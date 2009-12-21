@@ -1,4 +1,4 @@
-snippet request Clean
+snippet request Standard
 	new Request({
 		url: '${1:url}'
 	})${2};
@@ -13,9 +13,46 @@ snippet request JSON
 	new Request.JSON({
 		url: '${1:url}',
 		onSuccess: function(response) {
-			${2}
+			${2};
 		}
 	})${3};
+
+snippet request More options
+	new Request${1:Type}({
+		url: '${2:url}',
+		method: 'post',		// get/post
+		data: {${3}},
+		link: 'ignore', 	// ignore/cancel/chain
+		async: true,
+		encoding: 'utf-8',
+		evalScripts: true,
+		
+		onRequest: function(){
+			// Fired when the Request is sent.
+		},
+		onComplete: function() {
+			// Fired when the Request is completed.
+		},
+		onCancel: function() {
+			// Fired when a request has been cancelled.
+		},
+		onSuccess: function(${3:response_attributes}) {
+			// Fired when the Request is completed successfully.
+			// Request (responseText, responseXML)
+			// Request.HTML (responseTree, responseElements, responseHTML, responseJavaScript)
+			// Request.JSON (responseJSON, responseText)
+			${4};
+		},
+		onFailure: function(xhr) {
+			// Fired when the request failed (error status code).
+			// xhr - (XMLHttpRequest) The transport instance.
+		},
+		onException: function(headerName, value) {
+			// Fired when setting a request header fails.
+			// headerName - (string) The name of the failing header.
+			// value - (string) The value of the failing header.
+		}
+	})${5};
 
 snippet class Clean
 	new Class({
