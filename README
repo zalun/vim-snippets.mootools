@@ -1,6 +1,8 @@
 Snippets for ViM SnipMate plugin
 http://www.vim.org/scripts/script.php?script_id=2540
 
+Prepared to use with pathogen
+
 To install copy into your vim snippets directory (~/.vim/snippets/ on Linux)
 :set ft=javascript.mootools
 
